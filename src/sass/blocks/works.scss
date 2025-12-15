@@ -2,12 +2,13 @@
 
 .works {
     padding-top: 60px;
-    
+    position: relative;
+
     &__slider {
         margin-top: 40px;
     }
 
-    .swiper-wrapper img {
+    .swiper-slide img {
         width: 100%;
     }
 
@@ -22,8 +23,8 @@
     .swiper-pagination-bullet {
         width: 10px;
         height: 10px;
-        border-radius: 0%;
         background-color: $dark;
+        border-radius: 0%;
         opacity: 1;
         -webkit-tap-highlight-color: transparent;
     }
@@ -92,9 +93,10 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1920px) {
     .works {
         padding-top: 100px;
+
         &__slider {
             margin: 80px 85px 0 85px;
         }
