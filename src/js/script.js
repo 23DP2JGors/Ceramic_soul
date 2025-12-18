@@ -46,3 +46,23 @@ try {
         modules: [Navigation, Pagination],
     });
 } catch (e) { }
+
+try {
+    const tabs = document.querySelectorAll(".catalog__tab");
+    const contents = document.querySelectorAll(".catalog__content-item");
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+            // Удаляем активный класс у всех табов и контента
+            tabs.forEach((t) => t.classList.remove("catalog__tab_active"));
+            contents.forEach((c) => (c.style.display = "none"));
+
+            // Add an active class to the clicked tab and display the corresponding content.
+            tab.classList.add("catalog__tab_active");
+            contents[index].style.display = "flex";
+        });
+    });
+
+    // Displaying the first content upon loading
+    contents.forEach((c, i) => (c.style.display = i === 0 ? "flex" : "none"));
+} catch (e) { }
