@@ -1,6 +1,6 @@
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-import JustValidate from 'just-validate';
+import JustValidate from "just-validate";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,12 +12,12 @@ const burger = document.querySelector(".burger"),
     menu = document.querySelector(".header__menu");
 
 burger.addEventListener("click", () => {
-    menu.classList.add("header__menu-active");
+    menu.classList.add("header__menu_active");
     document.body.style.overflow = "hidden";
 });
 
 close.addEventListener("click", () => {
-    menu.classList.remove("header__menu-active");
+    menu.classList.remove("header__menu_active");
     document.body.style.overflow = "";
 });
 
@@ -120,9 +120,22 @@ try {
                     .querySelector("#checkbox")
                     .parentElement.parentElement.querySelector(".checkbox-error-message"),
             }
-        );
-} catch (e) {
-}
+        )
+        .onSuccess((event) => {
+            const form = event.currentTarget;
+            const formData = new FormData(form);
+
+            fetch("https://httpbin.org/post", {
+                method: "POST",
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log("Success", data);
+                    form.reset();
+                });
+        });
+} catch (e) { }
 
 try {
     const validatorFooter = new JustValidate(".footer__form");
@@ -154,8 +167,21 @@ try {
             {
                 errorsContainer: document
                     .querySelector("#footer__checkbox")
-                    .parentElement.parentElement.querySelector(".checkbox-error-message"),
+                    .parentElement.parentElement.querySelector(".check-error-message"),
             }
-        );
-} catch (e) {
-}
+        )
+        .onSuccess((event) => {
+            const form = event.currentTarget;
+            const formData = new FormData(form);
+
+            fetch("https://httpbin.org/post", {
+                method: "POST",
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log("Success", data);
+                    form.reset();
+                });
+        });
+} catch (e) { }
