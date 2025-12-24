@@ -3,6 +3,11 @@
 .touch {
     padding-top: 60px;
 
+    .just-validate-error-field {
+        border: none;
+        outline: 1px solid $ui-error;
+    }
+
     &__wrapper {
         padding-top: 60px;
     }
@@ -160,22 +165,27 @@
             width: 100%;
             height: 342px;
         }
+
         &__form {
             padding-left: 143px;
             width: auto;
         }
+
         &__fieldset {
             display: flex;
             column-gap: 45px;
         }
+
         &__label,
         &__input,
-        &__textarea{
+        &__textarea {
             width: 300px;
         }
+
         &__check-block {
             width: fit-content;
         }
+
         &__decor {
             right: 75px;
         }

@@ -145,10 +145,14 @@
                     <h2 class="footer__header">newsletter</h2>
                     <p class="footer__text">Keep up to date with news and promotions</p>
                     <form action="#" class="footer__form">
-                        <input type="email" placeholder="Enter your e-mail" required class="footer__input" />
+                        <input type="email" placeholder="Enter your e-mail" required class="footer__input"
+                            id="footer__email" />
+                        <div class="email-error-message"></div>
                         <label class="footer__label footer__check-block" for="footer__checkbox">
                             <input required class="footer__checkbox" type="checkbox" id="footer__checkbox" />
-                            I agree with the <a href="#">terms</a></label>
+                            I agree with the <a href="#">terms</a>
+                        </label>
+                        <div class="checkbox-error-message"></div>
                         <button class="btn-submit footer__form-btn">submit</button>
                     </form>
                 </div>
